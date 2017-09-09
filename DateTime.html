@@ -11778,14 +11778,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><b><em>TODO: (Maybe) Name the repo DateTimes,Timedeltas, DateRanges, and Time_Series</em></b></p>
+<p><b><em>TODO: What does a call to first() (or last()) do when chained onto a call to resample that specifies an upsample? For e.g. pd.read_csv('world_population.csv').resample('A').first(), where the original data is decennial data, so resampling annually would be upsampling.</em></b>
+<br>
+<b><em>TODO: In README, specifically list all topics covered in notebook.</em></b></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[51]:</div>
+<div class="prompt input_prompt">In&nbsp;[637]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11799,7 +11801,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[638]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%</span><span class="k">HTML</span>
@@ -11855,7 +11857,7 @@ em b {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[639]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;9/1/2016 10:05AM&#39;</span><span class="p">)</span>
@@ -11870,7 +11872,7 @@ em b {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[53]:</div>
+<div class="prompt output_prompt">Out[639]:</div>
 
 
 
@@ -11895,7 +11897,7 @@ em b {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[640]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;1/2016&#39;</span><span class="p">)</span>
@@ -11910,7 +11912,7 @@ em b {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[54]:</div>
+<div class="prompt output_prompt">Out[640]:</div>
 
 
 
@@ -11926,7 +11928,7 @@ em b {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[641]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;3/5/2016&#39;</span><span class="p">)</span>
@@ -11941,7 +11943,7 @@ em b {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[55]:</div>
+<div class="prompt output_prompt">Out[641]:</div>
 
 
 
@@ -11966,7 +11968,7 @@ em b {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[642]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">t1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;abc&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2016-09-01&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2016-09-02&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;2016-09-03&#39;</span><span class="p">)])</span>
@@ -11982,7 +11984,7 @@ em b {
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[56]:</div>
+<div class="prompt output_prompt">Out[642]:</div>
 
 
 
@@ -12001,7 +12003,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[643]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">t1</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -12016,12 +12018,12 @@ dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[57]:</div>
+<div class="prompt output_prompt">Out[643]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>pandas.tseries.index.DatetimeIndex</pre>
+<pre>pandas.core.indexes.datetimes.DatetimeIndex</pre>
 </div>
 
 </div>
@@ -12041,7 +12043,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[644]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">t2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;def&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2016-09&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2016-10&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2016-11&#39;</span><span class="p">)])</span>
@@ -12057,7 +12059,7 @@ dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[58]:</div>
+<div class="prompt output_prompt">Out[644]:</div>
 
 
 
@@ -12076,7 +12078,7 @@ Freq: M, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[645]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">t2</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -12091,12 +12093,12 @@ Freq: M, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[59]:</div>
+<div class="prompt output_prompt">Out[645]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>pandas.tseries.period.PeriodIndex</pre>
+<pre>pandas.core.indexes.period.PeriodIndex</pre>
 </div>
 
 </div>
@@ -12107,7 +12109,7 @@ Freq: M, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[646]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">tDaily</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;def&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2016-09-01&#39;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2016-09-02&#39;</span><span class="p">),</span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2016-09-03&#39;</span><span class="p">)])</span>
@@ -12123,7 +12125,7 @@ Freq: M, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[60]:</div>
+<div class="prompt output_prompt">Out[646]:</div>
 
 
 
@@ -12142,7 +12144,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[647]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">tDaily</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -12157,12 +12159,12 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[61]:</div>
+<div class="prompt output_prompt">Out[647]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>pandas.tseries.period.PeriodIndex</pre>
+<pre>pandas.core.indexes.period.PeriodIndex</pre>
 </div>
 
 </div>
@@ -12173,7 +12175,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[648]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">t_ambiguous_frequency</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="s1">&#39;def&#39;</span><span class="p">),</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2016-09-01&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2016-09-05&#39;</span><span class="p">),</span> <span class="n">pd</span><span class="o">.</span><span class="n">Period</span><span class="p">(</span><span class="s1">&#39;2016-09-25&#39;</span><span class="p">)])</span>
@@ -12189,7 +12191,7 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[62]:</div>
+<div class="prompt output_prompt">Out[648]:</div>
 
 
 
@@ -12218,7 +12220,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[649]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">t_ambiguous_frequency</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -12233,12 +12235,12 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[63]:</div>
+<div class="prompt output_prompt">Out[649]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>pandas.tseries.period.PeriodIndex</pre>
+<pre>pandas.core.indexes.period.PeriodIndex</pre>
 </div>
 
 </div>
@@ -12259,7 +12261,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[650]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#t_someDays_othersMonths = pd.Series(list(&#39;def&#39;),[pd.Period(&#39;2016-09&#39;), pd.Period(&#39;2016-09-05&#39;), pd.Period(&#39;2016-10-03&#39;)])</span>
@@ -12292,7 +12294,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[651]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">d1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;2 June 2013&#39;</span><span class="p">,</span> <span class="s1">&#39;Aug 29, 2014&#39;</span><span class="p">,</span> <span class="s1">&#39;2015-06-26&#39;</span><span class="p">,</span> <span class="s1">&#39;7/12/16&#39;</span><span class="p">]</span>
@@ -12309,11 +12311,24 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[65]:</div>
+<div class="prompt output_prompt">Out[651]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12325,23 +12340,23 @@ Freq: D, dtype: object</pre>
   <tbody>
     <tr>
       <th>2 June 2013</th>
-      <td>34</td>
-      <td>29</td>
+      <td>85</td>
+      <td>77</td>
     </tr>
     <tr>
       <th>Aug 29, 2014</th>
-      <td>52</td>
-      <td>63</td>
+      <td>78</td>
+      <td>91</td>
     </tr>
     <tr>
       <th>2015-06-26</th>
-      <td>23</td>
-      <td>78</td>
+      <td>55</td>
+      <td>79</td>
     </tr>
     <tr>
       <th>7/12/16</th>
-      <td>79</td>
-      <td>46</td>
+      <td>34</td>
+      <td>39</td>
     </tr>
   </tbody>
 </table>
@@ -12356,7 +12371,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[652]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ts3</span><span class="o">.</span><span class="n">index</span>
@@ -12371,7 +12386,7 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[66]:</div>
+<div class="prompt output_prompt">Out[652]:</div>
 
 
 
@@ -12397,7 +12412,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[653]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ts3</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ts3</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -12413,11 +12428,24 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[67]:</div>
+<div class="prompt output_prompt">Out[653]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12429,23 +12457,23 @@ Freq: D, dtype: object</pre>
   <tbody>
     <tr>
       <th>2013-06-02</th>
-      <td>34</td>
-      <td>29</td>
+      <td>85</td>
+      <td>77</td>
     </tr>
     <tr>
       <th>2014-08-29</th>
-      <td>52</td>
-      <td>63</td>
+      <td>78</td>
+      <td>91</td>
     </tr>
     <tr>
       <th>2015-06-26</th>
-      <td>23</td>
-      <td>78</td>
+      <td>55</td>
+      <td>79</td>
     </tr>
     <tr>
       <th>2016-07-12</th>
-      <td>79</td>
-      <td>46</td>
+      <td>34</td>
+      <td>39</td>
     </tr>
   </tbody>
 </table>
@@ -12460,7 +12488,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[654]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ts3</span><span class="o">.</span><span class="n">index</span>
@@ -12475,7 +12503,7 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[68]:</div>
+<div class="prompt output_prompt">Out[654]:</div>
 
 
 
@@ -12511,7 +12539,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[655]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="s1">&#39;4.7.2021&#39;</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -12526,7 +12554,7 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[69]:</div>
+<div class="prompt output_prompt">Out[655]:</div>
 
 
 
@@ -12561,7 +12589,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[656]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;9/3/2016&#39;</span><span class="p">)</span><span class="o">-</span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;9/1/2016&#39;</span><span class="p">)</span>
@@ -12576,7 +12604,7 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[70]:</div>
+<div class="prompt output_prompt">Out[656]:</div>
 
 
 
@@ -12602,7 +12630,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[657]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Timestamp</span><span class="p">(</span><span class="s1">&#39;9/2/2016 8:10AM&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">Timedelta</span><span class="p">(</span><span class="s1">&#39;12D 3H&#39;</span><span class="p">)</span>
@@ -12617,7 +12645,7 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[71]:</div>
+<div class="prompt output_prompt">Out[657]:</div>
 
 
 
@@ -12668,7 +12696,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[658]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;10-01-2016&#39;</span><span class="p">,</span> <span class="n">periods</span> <span class="o">=</span> <span class="mi">9</span><span class="p">,</span> <span class="n">freq</span> <span class="o">=</span> <span class="s1">&#39;2W-Sun&#39;</span><span class="p">)</span>
@@ -12684,7 +12712,7 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[72]:</div>
+<div class="prompt output_prompt">Out[658]:</div>
 
 
 
@@ -12713,7 +12741,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[659]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">v100</span> <span class="o">=</span> <span class="mi">100</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
@@ -12731,11 +12759,24 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[73]:</div>
+<div class="prompt output_prompt">Out[659]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -12748,47 +12789,47 @@ Freq: D, dtype: object</pre>
     <tr>
       <th>2016-10-02</th>
       <td>104</td>
-      <td>117</td>
-    </tr>
-    <tr>
-      <th>2016-10-16</th>
-      <td>106</td>
-      <td>115</td>
-    </tr>
-    <tr>
-      <th>2016-10-30</th>
-      <td>105</td>
-      <td>113</td>
-    </tr>
-    <tr>
-      <th>2016-11-13</th>
-      <td>107</td>
       <td>116</td>
     </tr>
     <tr>
-      <th>2016-11-27</th>
-      <td>105</td>
+      <th>2016-10-16</th>
+      <td>102</td>
       <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-10-30</th>
+      <td>98</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-13</th>
+      <td>99</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-27</th>
+      <td>96</td>
+      <td>107</td>
     </tr>
     <tr>
       <th>2016-12-11</th>
-      <td>109</td>
-      <td>113</td>
+      <td>93</td>
+      <td>111</td>
     </tr>
     <tr>
       <th>2016-12-25</th>
-      <td>111</td>
-      <td>109</td>
+      <td>96</td>
+      <td>106</td>
     </tr>
     <tr>
       <th>2017-01-08</th>
-      <td>109</td>
-      <td>110</td>
+      <td>97</td>
+      <td>104</td>
     </tr>
     <tr>
       <th>2017-01-22</th>
-      <td>113</td>
-      <td>114</td>
+      <td>93</td>
+      <td>99</td>
     </tr>
   </tbody>
 </table>
@@ -12822,7 +12863,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[660]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weekday_name</span>
@@ -12837,12 +12878,54 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[74]:</div>
+<div class="prompt output_prompt">Out[660]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
 <pre>&#39;Sunday&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Note that the datatype of each element in a datetimeIndex is pandas._libs.tslib.Timestamp. As far as I know, this datatype is not the same as the datetime in the datetime module (i.e. datetime.datetime)</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[661]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1">#df.index.tolist()[0]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[661]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pandas._libs.tslib.Timestamp</pre>
 </div>
 
 </div>
@@ -12882,7 +12965,7 @@ Freq: D, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[662]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2017-01-08&#39;</span><span class="p">]</span>
@@ -12897,14 +12980,14 @@ Freq: D, dtype: object</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[75]:</div>
+<div class="prompt output_prompt">Out[662]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Walk_Around_100    109
-Walk_Around_120    110
-Name: 2017-01-08 00:00:00, dtype: int64</pre>
+<pre>Walk_Around_100     97
+Walk_Around_120    104
+Name: 2017-01-08 00:00:00, dtype: int32</pre>
 </div>
 
 </div>
@@ -12915,7 +12998,7 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[663]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;January 8, 2017&#39;</span><span class="p">]</span>
@@ -12930,14 +13013,14 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[76]:</div>
+<div class="prompt output_prompt">Out[663]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Walk_Around_100    109
-Walk_Around_120    110
-Name: 2017-01-08 00:00:00, dtype: int64</pre>
+<pre>Walk_Around_100     97
+Walk_Around_120    104
+Name: 2017-01-08 00:00:00, dtype: int32</pre>
 </div>
 
 </div>
@@ -12948,7 +13031,7 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[77]:</div>
+<div class="prompt input_prompt">In&nbsp;[664]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;January 8th, 2017&#39;</span><span class="p">]</span>
@@ -12963,14 +13046,14 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[77]:</div>
+<div class="prompt output_prompt">Out[664]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Walk_Around_100    109
-Walk_Around_120    110
-Name: 2017-01-08 00:00:00, dtype: int64</pre>
+<pre>Walk_Around_100     97
+Walk_Around_120    104
+Name: 2017-01-08 00:00:00, dtype: int32</pre>
 </div>
 
 </div>
@@ -12981,7 +13064,7 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[78]:</div>
+<div class="prompt input_prompt">In&nbsp;[665]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2017 8th January&#39;</span><span class="p">]</span>
@@ -12996,14 +13079,14 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[78]:</div>
+<div class="prompt output_prompt">Out[665]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Walk_Around_100    109
-Walk_Around_120    110
-Name: 2017-01-08 00:00:00, dtype: int64</pre>
+<pre>Walk_Around_100     97
+Walk_Around_120    104
+Name: 2017-01-08 00:00:00, dtype: int32</pre>
 </div>
 
 </div>
@@ -13014,7 +13097,7 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[79]:</div>
+<div class="prompt input_prompt">In&nbsp;[666]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2017 January 8th&#39;</span><span class="p">]</span>
@@ -13029,14 +13112,14 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[79]:</div>
+<div class="prompt output_prompt">Out[666]:</div>
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Walk_Around_100    109
-Walk_Around_120    110
-Name: 2017-01-08 00:00:00, dtype: int64</pre>
+<pre>Walk_Around_100     97
+Walk_Around_120    104
+Name: 2017-01-08 00:00:00, dtype: int32</pre>
 </div>
 
 </div>
@@ -13077,7 +13160,7 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[80]:</div>
+<div class="prompt input_prompt">In&nbsp;[667]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2017 January&#39;</span><span class="p">]</span>
@@ -13092,11 +13175,24 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[80]:</div>
+<div class="prompt output_prompt">Out[667]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13108,13 +13204,13 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
   <tbody>
     <tr>
       <th>2017-01-08</th>
-      <td>109</td>
-      <td>110</td>
+      <td>97</td>
+      <td>104</td>
     </tr>
     <tr>
       <th>2017-01-22</th>
-      <td>113</td>
-      <td>114</td>
+      <td>93</td>
+      <td>99</td>
     </tr>
   </tbody>
 </table>
@@ -13139,7 +13235,7 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[81]:</div>
+<div class="prompt input_prompt">In&nbsp;[668]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2016&#39;</span><span class="p">]</span>
@@ -13154,11 +13250,24 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[81]:</div>
+<div class="prompt output_prompt">Out[668]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13171,37 +13280,37 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
     <tr>
       <th>2016-10-02</th>
       <td>104</td>
-      <td>117</td>
-    </tr>
-    <tr>
-      <th>2016-10-16</th>
-      <td>106</td>
-      <td>115</td>
-    </tr>
-    <tr>
-      <th>2016-10-30</th>
-      <td>105</td>
-      <td>113</td>
-    </tr>
-    <tr>
-      <th>2016-11-13</th>
-      <td>107</td>
       <td>116</td>
     </tr>
     <tr>
-      <th>2016-11-27</th>
-      <td>105</td>
+      <th>2016-10-16</th>
+      <td>102</td>
       <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-10-30</th>
+      <td>98</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-13</th>
+      <td>99</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-27</th>
+      <td>96</td>
+      <td>107</td>
     </tr>
     <tr>
       <th>2016-12-11</th>
-      <td>109</td>
-      <td>113</td>
+      <td>93</td>
+      <td>111</td>
     </tr>
     <tr>
       <th>2016-12-25</th>
-      <td>111</td>
-      <td>109</td>
+      <td>96</td>
+      <td>106</td>
     </tr>
   </tbody>
 </table>
@@ -13241,7 +13350,7 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[83]:</div>
+<div class="prompt input_prompt">In&nbsp;[669]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
@@ -13256,11 +13365,24 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 
 
 <div class="output_area">
-<div class="prompt output_prompt">Out[83]:</div>
+<div class="prompt output_prompt">Out[669]:</div>
 
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 <div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -13273,22 +13395,22 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
     <tr>
       <th>2016-10-31</th>
       <td>104</td>
-      <td>117</td>
-    </tr>
-    <tr>
-      <th>2016-11-30</th>
-      <td>107</td>
       <td>116</td>
     </tr>
     <tr>
+      <th>2016-11-30</th>
+      <td>99</td>
+      <td>107</td>
+    </tr>
+    <tr>
       <th>2016-12-31</th>
-      <td>109</td>
-      <td>113</td>
+      <td>93</td>
+      <td>111</td>
     </tr>
     <tr>
       <th>2017-01-31</th>
-      <td>109</td>
-      <td>110</td>
+      <td>97</td>
+      <td>104</td>
     </tr>
   </tbody>
 </table>
@@ -13306,6 +13428,2226 @@ Name: 2017-01-08 00:00:00, dtype: int64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Upsampling">Upsampling<a class="anchor-link" href="#Upsampling">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Upsampling involves filling in the missing values that inevitably result. We'll illustrate weekly upsampling of data in the DataFrame, df, in two ways- first, using the <b><em>asfreq</b>&lt;/em&gt; function, and second using the <b><em>resample</em></b> function.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We'll first reprint df, so we can see the original data that's upsampled.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[670]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[670]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Walk_Around_100</th>
+      <th>Walk_Around_120</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016-10-02</th>
+      <td>104</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <th>2016-10-16</th>
+      <td>102</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-10-30</th>
+      <td>98</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-13</th>
+      <td>99</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-27</th>
+      <td>96</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-12-11</th>
+      <td>93</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-12-25</th>
+      <td>96</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>2017-01-08</th>
+      <td>97</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <th>2017-01-22</th>
+      <td>93</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Using asfreq</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[671]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weekly_df_use_asfreq</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">asfreq</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;ffill&#39;</span><span class="p">)</span>
+<span class="n">weekly_df_use_asfreq</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[671]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Walk_Around_100</th>
+      <th>Walk_Around_120</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016-10-02</th>
+      <td>104</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <th>2016-10-09</th>
+      <td>104</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <th>2016-10-16</th>
+      <td>102</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-10-23</th>
+      <td>102</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-10-30</th>
+      <td>98</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-06</th>
+      <td>98</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-13</th>
+      <td>99</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-20</th>
+      <td>99</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-27</th>
+      <td>96</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-12-04</th>
+      <td>96</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-12-11</th>
+      <td>93</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-12-18</th>
+      <td>93</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-12-25</th>
+      <td>96</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>2017-01-01</th>
+      <td>96</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>2017-01-08</th>
+      <td>97</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <th>2017-01-15</th>
+      <td>97</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <th>2017-01-22</th>
+      <td>93</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Using resample</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[672]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weekly_df_use_resample</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;W&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ffill</span><span class="p">()</span>
+<span class="n">weekly_df_use_resample</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[672]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Walk_Around_100</th>
+      <th>Walk_Around_120</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2016-10-02</th>
+      <td>104</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <th>2016-10-09</th>
+      <td>104</td>
+      <td>116</td>
+    </tr>
+    <tr>
+      <th>2016-10-16</th>
+      <td>102</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-10-23</th>
+      <td>102</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-10-30</th>
+      <td>98</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-06</th>
+      <td>98</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-13</th>
+      <td>99</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-20</th>
+      <td>99</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-11-27</th>
+      <td>96</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-12-04</th>
+      <td>96</td>
+      <td>107</td>
+    </tr>
+    <tr>
+      <th>2016-12-11</th>
+      <td>93</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-12-18</th>
+      <td>93</td>
+      <td>111</td>
+    </tr>
+    <tr>
+      <th>2016-12-25</th>
+      <td>96</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>2017-01-01</th>
+      <td>96</td>
+      <td>106</td>
+    </tr>
+    <tr>
+      <th>2017-01-08</th>
+      <td>97</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <th>2017-01-15</th>
+      <td>97</td>
+      <td>104</td>
+    </tr>
+    <tr>
+      <th>2017-01-22</th>
+      <td>93</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[673]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">weekly_df_use_asfreq</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">weekly_df_use_resample</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[673]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>So use of both resample and asfreq yield identical results; to forward fill the missing data when using resample, ffill is chained onto the call sequence</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Methods-callable-on-datetime-series">Methods callable on datetime series<a class="anchor-link" href="#Methods-callable-on-datetime-series">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[674]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;sales-feb-2015.csv&#39;</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">parse_dates</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<span class="n">sales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[674]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>Product</th>
+      <th>Units</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-26 08:57:45</th>
+      <td>Streeplex</td>
+      <td>Service</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2015-02-16 12:09:19</th>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2015-02-03 14:14:18</th>
+      <td>Initech</td>
+      <td>Software</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2015-02-02 08:33:01</th>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2015-02-25 00:29:00</th>
+      <td>Initech</td>
+      <td>Service</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>We'll first access the hour treating the Date (above) as a normal pandas series (as opposed to a datetimeIndex). This involves resetting the index. Accessing the datetime-like properties of a regular pandas series involves the idiom below (accessing the dt accessor and using it to access the property)</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[675]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">hour</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[675]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0     8
+1    12
+2    14
+3     8
+4     0
+Name: Date, dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Now we'll access the Date as a datetimeindex. <br><b><em> Notice that we can't call head to display the first five elements of the index since the index is actually stored as a numpy array as opposed to a pandas series</b>&lt;/em&gt;</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[676]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">hour</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[676]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Int64Index([8, 12, 14, 8, 0], dtype=&#39;int64&#39;, name=&#39;Date&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[677]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">minute</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[677]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Int64Index([57, 9, 14, 33, 29], dtype=&#39;int64&#39;, name=&#39;Date&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[678]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">dayofweek</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[678]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Int64Index([3, 0, 1, 0, 2], dtype=&#39;int64&#39;, name=&#39;Date&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Timezones">Timezones<a class="anchor-link" href="#Timezones">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Notice in the output below that the index of sales is not timezone aware. We'll then set the index to US Central Time</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[679]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[679]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>DatetimeIndex([&#39;2015-02-26 08:57:45&#39;, &#39;2015-02-16 12:09:19&#39;,
+               &#39;2015-02-03 14:14:18&#39;, &#39;2015-02-02 08:33:01&#39;,
+               &#39;2015-02-25 00:29:00&#39;, &#39;2015-02-05 01:53:06&#39;,
+               &#39;2015-02-09 08:57:30&#39;, &#39;2015-02-11 20:03:08&#39;,
+               &#39;2015-02-04 21:52:45&#39;, &#39;2015-02-09 13:09:55&#39;,
+               &#39;2015-02-07 22:58:10&#39;, &#39;2015-02-11 22:50:44&#39;,
+               &#39;2015-02-26 08:58:51&#39;, &#39;2015-02-05 22:05:03&#39;,
+               &#39;2015-02-04 15:36:29&#39;, &#39;2015-02-19 16:02:58&#39;,
+               &#39;2015-02-19 10:59:33&#39;, &#39;2015-02-02 20:54:49&#39;,
+               &#39;2015-02-21 05:01:26&#39;, &#39;2015-02-21 20:41:47&#39;],
+              dtype=&#39;datetime64[ns]&#39;, name=&#39;Date&#39;, freq=None)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[680]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;US/Central&#39;</span><span class="p">)</span>
+<span class="n">sales</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[680]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>DatetimeIndex([&#39;2015-02-26 08:57:45-06:00&#39;, &#39;2015-02-16 12:09:19-06:00&#39;,
+               &#39;2015-02-03 14:14:18-06:00&#39;, &#39;2015-02-02 08:33:01-06:00&#39;,
+               &#39;2015-02-25 00:29:00-06:00&#39;, &#39;2015-02-05 01:53:06-06:00&#39;,
+               &#39;2015-02-09 08:57:30-06:00&#39;, &#39;2015-02-11 20:03:08-06:00&#39;,
+               &#39;2015-02-04 21:52:45-06:00&#39;, &#39;2015-02-09 13:09:55-06:00&#39;,
+               &#39;2015-02-07 22:58:10-06:00&#39;, &#39;2015-02-11 22:50:44-06:00&#39;,
+               &#39;2015-02-26 08:58:51-06:00&#39;, &#39;2015-02-05 22:05:03-06:00&#39;,
+               &#39;2015-02-04 15:36:29-06:00&#39;, &#39;2015-02-19 16:02:58-06:00&#39;,
+               &#39;2015-02-19 10:59:33-06:00&#39;, &#39;2015-02-02 20:54:49-06:00&#39;,
+               &#39;2015-02-21 05:01:26-06:00&#39;, &#39;2015-02-21 20:41:47-06:00&#39;],
+              dtype=&#39;datetime64[ns, US/Central]&#39;, name=&#39;Date&#39;, freq=None)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Notice that  '-06:00' now ends each element of the index. This is because the times are relative to UTC (Coordinated Universal Time).</em></p>
+<p><em>Let's see what the times look like if we convert the times to US Eastern time</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[681]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="s1">&#39;US/Eastern&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[681]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>DatetimeIndex([&#39;2015-02-26 09:57:45-05:00&#39;, &#39;2015-02-16 13:09:19-05:00&#39;,
+               &#39;2015-02-03 15:14:18-05:00&#39;, &#39;2015-02-02 09:33:01-05:00&#39;,
+               &#39;2015-02-25 01:29:00-05:00&#39;, &#39;2015-02-05 02:53:06-05:00&#39;,
+               &#39;2015-02-09 09:57:30-05:00&#39;, &#39;2015-02-11 21:03:08-05:00&#39;,
+               &#39;2015-02-04 22:52:45-05:00&#39;, &#39;2015-02-09 14:09:55-05:00&#39;,
+               &#39;2015-02-07 23:58:10-05:00&#39;, &#39;2015-02-11 23:50:44-05:00&#39;,
+               &#39;2015-02-26 09:58:51-05:00&#39;, &#39;2015-02-05 23:05:03-05:00&#39;,
+               &#39;2015-02-04 16:36:29-05:00&#39;, &#39;2015-02-19 17:02:58-05:00&#39;,
+               &#39;2015-02-19 11:59:33-05:00&#39;, &#39;2015-02-02 21:54:49-05:00&#39;,
+               &#39;2015-02-21 06:01:26-05:00&#39;, &#39;2015-02-21 21:41:47-05:00&#39;],
+              dtype=&#39;datetime64[ns, US/Eastern]&#39;, name=&#39;Date&#39;, freq=None)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Notice that the times jumped ahead by an hour and we have UTC -05:00 instead of -06:00 ending each datetime element</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Even though we outputted the US/Eastern times, the actual times for the datetimeIndex of sales are still US/Central. Let's return the datetimeIndex to its original timezone-naive state.</em></p>
+<p><em>To do this, one approach is to construct a new datetimeIndex using a list comprehension based on the current one.</em></p>
+<p><b><em>Note that simply assigning sales.index.tz the value <span style = 'color:green;'>None</span>, will convert the times to UTC, which isn't want we want in this case. </em></b></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[682]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">([</span><span class="n">t</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">tzinfo</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">sales</span><span class="o">.</span><span class="n">index</span><span class="p">])</span>
+<span class="n">sales</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Date&#39;</span>
+<span class="n">sales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[682]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Company</th>
+      <th>Product</th>
+      <th>Units</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2015-02-26 08:57:45</th>
+      <td>Streeplex</td>
+      <td>Service</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>2015-02-16 12:09:19</th>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2015-02-03 14:14:18</th>
+      <td>Initech</td>
+      <td>Software</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>2015-02-02 08:33:01</th>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>2015-02-25 00:29:00</th>
+      <td>Initech</td>
+      <td>Service</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><b>If the Date were a column in the DataFrame rather than an index, the process of making it timezone aware, changing the timezone and finally restoring it to its timezone-naive state would be slightly different, and this is demonstrated below.</b></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[683]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span> <span class="o">=</span> <span class="n">sales</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+<span class="n">sales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[683]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Company</th>
+      <th>Product</th>
+      <th>Units</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2015-02-26 08:57:45</td>
+      <td>Streeplex</td>
+      <td>Service</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2015-02-16 12:09:19</td>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2015-02-03 14:14:18</td>
+      <td>Initech</td>
+      <td>Software</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2015-02-02 08:33:01</td>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2015-02-25 00:29:00</td>
+      <td>Initech</td>
+      <td>Service</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[684]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sales</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="s1">&#39;US/Central&#39;</span><span class="p">)</span>
+<span class="n">sales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[684]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Company</th>
+      <th>Product</th>
+      <th>Units</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2015-02-26 08:57:45-06:00</td>
+      <td>Streeplex</td>
+      <td>Service</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2015-02-16 12:09:19-06:00</td>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2015-02-03 14:14:18-06:00</td>
+      <td>Initech</td>
+      <td>Software</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2015-02-02 08:33:01-06:00</td>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2015-02-25 00:29:00-06:00</td>
+      <td>Initech</td>
+      <td>Service</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[685]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_convert</span><span class="p">(</span><span class="s1">&#39;US/Eastern&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[685]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0   2015-02-26 09:57:45-05:00
+1   2015-02-16 13:09:19-05:00
+2   2015-02-03 15:14:18-05:00
+3   2015-02-02 09:33:01-05:00
+4   2015-02-25 01:29:00-05:00
+Name: Date, dtype: datetime64[ns, US/Eastern]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[686]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">sales</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">tz_localize</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">sales</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[686]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Company</th>
+      <th>Product</th>
+      <th>Units</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2015-02-26 08:57:45</td>
+      <td>Streeplex</td>
+      <td>Service</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2015-02-16 12:09:19</td>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2015-02-03 14:14:18</td>
+      <td>Initech</td>
+      <td>Software</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2015-02-02 08:33:01</td>
+      <td>Hooli</td>
+      <td>Software</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2015-02-25 00:29:00</td>
+      <td>Initech</td>
+      <td>Service</td>
+      <td>10</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[691]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sales</span><span class="p">[</span><span class="s1">&#39;Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[691]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0   2015-02-26 08:57:45
+1   2015-02-16 12:09:19
+2   2015-02-03 14:14:18
+3   2015-02-02 08:33:01
+4   2015-02-25 00:29:00
+Name: Date, dtype: datetime64[ns]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Interpolation">Interpolation<a class="anchor-link" href="#Interpolation">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>To illustrate interpolation (the filling in of missing data using a pattern), we'll use the world_population csv file with decennial world population data</em></p>
+<p><b><em>The data file only has years (i.e. 1960, 1970, ...,2010), but when when parsing the column as as date, Pandas adds the month and the day.</b>&lt;/em&gt;</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[695]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">world_pop</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;world_population.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">index_col</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">world_pop</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Date&#39;</span>
+<span class="n">world_pop</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[695]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Total Population</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1960-01-01</th>
+      <td>3.034971e+09</td>
+    </tr>
+    <tr>
+      <th>1970-01-01</th>
+      <td>3.684823e+09</td>
+    </tr>
+    <tr>
+      <th>1980-01-01</th>
+      <td>4.436590e+09</td>
+    </tr>
+    <tr>
+      <th>1990-01-01</th>
+      <td>5.282716e+09</td>
+    </tr>
+    <tr>
+      <th>2000-01-01</th>
+      <td>6.115974e+09</td>
+    </tr>
+    <tr>
+      <th>2010-01-01</th>
+      <td>6.924283e+09</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><b><em>I have no idea what the chained call to first() does when upsampling since upsampled data will anyway contain all of the original data.</em></b> <br>
+<b><em style = 'color:red;'>TODO: find out what a chained call to first() does (as opposed to last() or possibly mean()) when called on an upsampled data</em></b></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[703]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">world_pop</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[703]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Total Population</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1960-12-31</th>
+      <td>3.034971e+09</td>
+    </tr>
+    <tr>
+      <th>1961-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1962-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1963-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1964-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1965-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1966-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1967-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1968-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1969-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1970-12-31</th>
+      <td>3.684823e+09</td>
+    </tr>
+    <tr>
+      <th>1971-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1972-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1973-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1974-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1975-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1976-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1977-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1978-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1979-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1980-12-31</th>
+      <td>4.436590e+09</td>
+    </tr>
+    <tr>
+      <th>1981-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1982-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1983-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1984-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1985-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1986-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1987-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1988-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1989-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1990-12-31</th>
+      <td>5.282716e+09</td>
+    </tr>
+    <tr>
+      <th>1991-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1992-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1993-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1994-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1995-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1996-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1997-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1998-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1999-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2000-12-31</th>
+      <td>6.115974e+09</td>
+    </tr>
+    <tr>
+      <th>2001-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2002-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2003-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2004-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2005-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2006-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2007-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2008-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2009-12-31</th>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>2010-12-31</th>
+      <td>6.924283e+09</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><b><em>In this situation notice (from output below) that it doesn't seem to make a difference whether you're chaining a call to last() or first() onto your upsample call</em></b></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[704]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">world_pop</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">last</span><span class="p">()</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="n">world_pop</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">())</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[704]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>True</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><em>Let's not worry about what first() or last() do for now. Let's fill in the missing values with linearly interpolated data.</em></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[705]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">world_pop</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">first</span><span class="p">()</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[705]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style>
+    .dataframe thead tr:only-child th {
+        text-align: right;
+    }
+
+    .dataframe thead th {
+        text-align: left;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Total Population</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1960-12-31</th>
+      <td>3.034971e+09</td>
+    </tr>
+    <tr>
+      <th>1961-12-31</th>
+      <td>3.099956e+09</td>
+    </tr>
+    <tr>
+      <th>1962-12-31</th>
+      <td>3.164941e+09</td>
+    </tr>
+    <tr>
+      <th>1963-12-31</th>
+      <td>3.229926e+09</td>
+    </tr>
+    <tr>
+      <th>1964-12-31</th>
+      <td>3.294911e+09</td>
+    </tr>
+    <tr>
+      <th>1965-12-31</th>
+      <td>3.359897e+09</td>
+    </tr>
+    <tr>
+      <th>1966-12-31</th>
+      <td>3.424882e+09</td>
+    </tr>
+    <tr>
+      <th>1967-12-31</th>
+      <td>3.489867e+09</td>
+    </tr>
+    <tr>
+      <th>1968-12-31</th>
+      <td>3.554852e+09</td>
+    </tr>
+    <tr>
+      <th>1969-12-31</th>
+      <td>3.619837e+09</td>
+    </tr>
+    <tr>
+      <th>1970-12-31</th>
+      <td>3.684823e+09</td>
+    </tr>
+    <tr>
+      <th>1971-12-31</th>
+      <td>3.759999e+09</td>
+    </tr>
+    <tr>
+      <th>1972-12-31</th>
+      <td>3.835176e+09</td>
+    </tr>
+    <tr>
+      <th>1973-12-31</th>
+      <td>3.910353e+09</td>
+    </tr>
+    <tr>
+      <th>1974-12-31</th>
+      <td>3.985530e+09</td>
+    </tr>
+    <tr>
+      <th>1975-12-31</th>
+      <td>4.060707e+09</td>
+    </tr>
+    <tr>
+      <th>1976-12-31</th>
+      <td>4.135883e+09</td>
+    </tr>
+    <tr>
+      <th>1977-12-31</th>
+      <td>4.211060e+09</td>
+    </tr>
+    <tr>
+      <th>1978-12-31</th>
+      <td>4.286237e+09</td>
+    </tr>
+    <tr>
+      <th>1979-12-31</th>
+      <td>4.361414e+09</td>
+    </tr>
+    <tr>
+      <th>1980-12-31</th>
+      <td>4.436590e+09</td>
+    </tr>
+    <tr>
+      <th>1981-12-31</th>
+      <td>4.521203e+09</td>
+    </tr>
+    <tr>
+      <th>1982-12-31</th>
+      <td>4.605815e+09</td>
+    </tr>
+    <tr>
+      <th>1983-12-31</th>
+      <td>4.690428e+09</td>
+    </tr>
+    <tr>
+      <th>1984-12-31</th>
+      <td>4.775041e+09</td>
+    </tr>
+    <tr>
+      <th>1985-12-31</th>
+      <td>4.859653e+09</td>
+    </tr>
+    <tr>
+      <th>1986-12-31</th>
+      <td>4.944266e+09</td>
+    </tr>
+    <tr>
+      <th>1987-12-31</th>
+      <td>5.028878e+09</td>
+    </tr>
+    <tr>
+      <th>1988-12-31</th>
+      <td>5.113491e+09</td>
+    </tr>
+    <tr>
+      <th>1989-12-31</th>
+      <td>5.198103e+09</td>
+    </tr>
+    <tr>
+      <th>1990-12-31</th>
+      <td>5.282716e+09</td>
+    </tr>
+    <tr>
+      <th>1991-12-31</th>
+      <td>5.366042e+09</td>
+    </tr>
+    <tr>
+      <th>1992-12-31</th>
+      <td>5.449368e+09</td>
+    </tr>
+    <tr>
+      <th>1993-12-31</th>
+      <td>5.532694e+09</td>
+    </tr>
+    <tr>
+      <th>1994-12-31</th>
+      <td>5.616019e+09</td>
+    </tr>
+    <tr>
+      <th>1995-12-31</th>
+      <td>5.699345e+09</td>
+    </tr>
+    <tr>
+      <th>1996-12-31</th>
+      <td>5.782671e+09</td>
+    </tr>
+    <tr>
+      <th>1997-12-31</th>
+      <td>5.865997e+09</td>
+    </tr>
+    <tr>
+      <th>1998-12-31</th>
+      <td>5.949323e+09</td>
+    </tr>
+    <tr>
+      <th>1999-12-31</th>
+      <td>6.032649e+09</td>
+    </tr>
+    <tr>
+      <th>2000-12-31</th>
+      <td>6.115974e+09</td>
+    </tr>
+    <tr>
+      <th>2001-12-31</th>
+      <td>6.196805e+09</td>
+    </tr>
+    <tr>
+      <th>2002-12-31</th>
+      <td>6.277636e+09</td>
+    </tr>
+    <tr>
+      <th>2003-12-31</th>
+      <td>6.358467e+09</td>
+    </tr>
+    <tr>
+      <th>2004-12-31</th>
+      <td>6.439298e+09</td>
+    </tr>
+    <tr>
+      <th>2005-12-31</th>
+      <td>6.520129e+09</td>
+    </tr>
+    <tr>
+      <th>2006-12-31</th>
+      <td>6.600960e+09</td>
+    </tr>
+    <tr>
+      <th>2007-12-31</th>
+      <td>6.681790e+09</td>
+    </tr>
+    <tr>
+      <th>2008-12-31</th>
+      <td>6.762621e+09</td>
+    </tr>
+    <tr>
+      <th>2009-12-31</th>
+      <td>6.843452e+09</td>
+    </tr>
+    <tr>
+      <th>2010-12-31</th>
+      <td>6.924283e+09</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Datetime-Miscellany">Datetime Miscellany<a class="anchor-link" href="#Datetime-Miscellany">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>When you convert a pandas series whose elements are interpretable as datetimes, the datatype of each element is NOT the same as the datetime in the datetime module. Recall the case of the index of the DataFrame, df, from above. </li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[687]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[687]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>DatetimeIndex([&#39;2016-10-02&#39;, &#39;2016-10-16&#39;, &#39;2016-10-30&#39;, &#39;2016-11-13&#39;,
+               &#39;2016-11-27&#39;, &#39;2016-12-11&#39;, &#39;2016-12-25&#39;, &#39;2017-01-08&#39;,
+               &#39;2017-01-22&#39;],
+              dtype=&#39;datetime64[ns]&#39;, freq=&#39;2W-SUN&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[688]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[688]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Timestamp(&#39;2016-10-02 00:00:00&#39;, freq=&#39;2W-SUN&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[689]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">type</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[689]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pandas._libs.tslib.Timestamp</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The datetime constructor (that is datetime from the datetime module) can passed be varArgs</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[690]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="n">l</span> <span class="o">=</span> <span class="s2">&quot; 2016 10 3 17 0 10 &quot;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+<span class="n">mapToInts</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">l</span><span class="p">)</span>
+<span class="n">dt_args</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">mapToInts</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">dt_args</span><span class="p">)</span>
+<span class="n">dt</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="o">*</span><span class="n">dt_args</span><span class="p">)</span>
+<span class="n">dt</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt"></div>
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[2016, 10, 3, 17, 0, 10]
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[690]:</div>
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>datetime.datetime(2016, 10, 3, 17, 0, 10)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Note the datatype of the above datetime object. It's actually a datetime (from the module datetime).</p>
 
 </div>
 </div>
