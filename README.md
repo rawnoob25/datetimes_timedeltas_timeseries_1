@@ -1,5 +1,7 @@
 ## This repository contains a notebook that serves as a primer for datetimes in the context of pandas data frames 
 
+### TODO: everything tagged with TODO in DateTime.ipynb 
+
 <b>The topics covered are:</b>: 
 * examples of Timestamps 
 * examples of Periods (with different frequencies) 
